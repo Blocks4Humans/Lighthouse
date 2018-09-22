@@ -1,0 +1,86 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "ganache-cli": "^6.1.6",
+    "openzeppelin-solidity": "^1.12.0",
+    "truffle": "^4.1.14",
+    "truffle-hdwallet-provider": "^0.0.6",
+    "zos-lib": "^1.4.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^1.5.1",
+    "@material-ui/icons": "^2.0.3",
+    "babel-preset-react-app": "^3.1.2",
+    "drizzle": "^1.2.3",
+    "drizzle-react": "^1.2.0",
+    "drizzle-react-components": "^1.2.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eth-block-tracker-es5": "^2.3.2",
+    "ethjs-abi": "^0.2.1",
+    "ethjs-contract": "^0.2.3",
+    "ethjs-provider-http": "^0.1.6",
+    "ethjs-query": "^0.3.8",
+    "history": "^4.7.2",
+    "react": "^16.5.2",
+    "react-dev-utils": "^5.0.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "redux-auth-wrapper": "^2.0.3",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.3.0",
+    "web3": "1.0.0-beta.34"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "ganache-dev": "node ./node_modules/ganache-cli/build/cli.node.js -a=10 -b=3 -p=8545 -i=1335 -l=8000000 -g=1000000000 -m='coffee slogan task clinic begin rocket rabbit despair tank kid hire quiz'"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node",
+      "mjs"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}
