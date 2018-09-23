@@ -1,4 +1,8 @@
-pragma solidity ^0.4.24;
+pragma solidity 0.4.24;
+
+// imported for deployment
+import "ethr-did-registry/contracts/EthereumDIDRegistry.sol";
+import "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol";
 
 contract Migrations {
   address public owner;

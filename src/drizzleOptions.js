@@ -1,7 +1,6 @@
 import Web3 from 'web3'
-import ComplexStorage from './contracts/ComplexStorage.json'
-import SimpleStorage from './contracts/SimpleStorage.json'
-import TutorialToken from './contracts/TutorialToken.json'
+import ContractFactory from './contracts/ContractFactory.json'
+import MultiSigWalletWithDailyLimit from './contracts/MultiSigWalletWithDailyLimit.json'
 
 let drizzleOptions = {
   web3: {
@@ -11,12 +10,11 @@ let drizzleOptions = {
     }
   },
   contracts: [
-    ComplexStorage,
-    SimpleStorage,
-    TutorialToken
+    ContractFactory,
+    MultiSigWalletWithDailyLimit
   ],
   events: {
-    SimpleStorage: ['StorageSet']
+    ContractFactory: ['ContractDeployed']
   },
   polls: {
     blocks: 3000,
