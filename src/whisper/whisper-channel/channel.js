@@ -78,6 +78,7 @@ class Channel {
                 let delNum;
                 let i = 0;
                 while(!valid){
+                    // eslint-disable-next-line
                     doc.publicKey.forEach(element => {
                         if(element.ethereumAddress === kp.address){
                             valid = true;
@@ -108,6 +109,7 @@ class Channel {
                 let signer = null;
                 let i = 0;
                 while(!valid){
+                    // eslint-disable-next-line
                     doc.publicKey.forEach(element => {
                         let dPos = element.id.indexOf("-") 
                         let delNumIn = element.id.substring(dPos, element.id.length)
@@ -269,7 +271,6 @@ class Channel {
                                     nonce: message.nonce, 
                                     hash: message.hash}
                                     ); 
-                                    store.dispatch(squaresFetchData(1));
                             }else{ console.log("Invalid message received in channel")}
                         })
                     }

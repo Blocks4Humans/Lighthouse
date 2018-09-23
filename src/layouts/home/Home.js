@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { drizzleConnect } from 'drizzle-react'
 import PropTypes from 'prop-types'
-import { AccountData, ContractData, ContractForm } from 'drizzle-react-components'
+import ContractFormCreate from '../../components/ContractFactory/ContractFormCreate'
+import { channelCreating } from '../../actions/whisper/channelCreate';
+import SuccessSnackbar from '../../components/SuccessSnackbar';
+import WarningSnackbar from '../../components/WarningSnackbar';
 
 class Home extends Component {
   render() {
@@ -13,17 +16,19 @@ class Home extends Component {
             <br/><br/>
           </div>
           <div className="pure-u-1-1">
-            <h2>Active Account</h2>
-            <AccountData accountIndex="0" units="ether" precision="3" />
-
             <div className="pure-u-1-1">
             <h2>ContractFactory</h2>
             <p>This shows a simple ContractData component with no arguments, along with a form to set its value.</p>
-            <ContractForm contract="ContractFactory" method="createAndCall" />
-
+            <ContractFormCreate 
+            contract="ContractFactory"  
+            method="createAndCall" 
+            factoryContract="MultiSigWalletWithDailyLimit" 
+            method2="initialize" 
+            accountIndex="0"
+            labels={['Owners', 'Required','$ Daily Limit']}
+            />
             <br/><br/>
           </div>
-
           </div>
         </div>
       </main>
