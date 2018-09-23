@@ -9,17 +9,21 @@ class Home extends Component {
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1 header">
-            <h1>Drizzle Examples</h1>
-            <p>Examples of how to get started with Drizzle in various situations.</p>
-
+            <h1>LIGHTHOUSE</h1>
             <br/><br/>
           </div>
-
           <div className="pure-u-1-1">
             <h2>Active Account</h2>
             <AccountData accountIndex="0" units="ether" precision="3" />
 
+            <div className="pure-u-1-1">
+            <h2>ContractFactory</h2>
+            <p>This shows a simple ContractData component with no arguments, along with a form to set its value.</p>
+            <ContractForm contract="ContractFactory" method="createAndCall" />
+
             <br/><br/>
+          </div>
+
           </div>
         </div>
       </main>
