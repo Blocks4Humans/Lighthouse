@@ -1,5 +1,5 @@
 
-export function errorP2(state = false, action) {
+export function errorPeer2(state = false, action) {
     switch (action.type) {
         case 'JOIN_CHANNEL_ERROR':
             return action.hasErrored;
@@ -9,7 +9,7 @@ export function errorP2(state = false, action) {
     }
 }
 
-export function waitP2(state = false, action) {
+export function waitPeer2(state = false, action) {
     switch (action.type) {
         case 'JOIN_CHANNEL_WAITING':
             return action.isWaiting;
@@ -19,7 +19,7 @@ export function waitP2(state = false, action) {
     }
 }
 
-export function existsP2(state = false, action) {
+export function existsPeer2(state = false, action) {
     switch (action.type) {
         case 'JOIN_CHANNEL_SUCCESS':
             return action.joined;

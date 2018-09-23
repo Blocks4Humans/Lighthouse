@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { drizzleConnect } from 'drizzle-react'
 import PropTypes from 'prop-types'
-import { AccountData, ContractData, ContractForm } from 'drizzle-react-components'
+import ContractFormCreate from '../../components/ContractFactory/ContractFormCreate'
+//import { channelCreating } from '../../actions/whisper/channelCreate';
+//import SuccessSnackbar from '../../components/SuccessSnackbar';
+//import WarningSnackbar from '../../components/WarningSnackbar';
 
 class Home extends Component {
   render() {
@@ -9,17 +12,23 @@ class Home extends Component {
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1 header">
-            <h1>Drizzle Examples</h1>
-            <p>Examples of how to get started with Drizzle in various situations.</p>
-
+            <h1>LIGHTHOUSE</h1>
             <br/><br/>
           </div>
-
           <div className="pure-u-1-1">
-            <h2>Active Account</h2>
-            <AccountData accountIndex="0" units="ether" precision="3" />
-
+            <div className="pure-u-1-1">
+            <h2>Wallet Factory</h2>
+            <p>Create the a new wallet and Id.</p>
+            <ContractFormCreate 
+            contract="ContractFactory"  
+            method="createAndCall" 
+            factoryContract="MultiSigWalletWithDailyLimit" 
+            method2="initialize" 
+            accountIndex="0"
+            labels={['Owners', '# Approvals','$ Daily Limit']}
+            />
             <br/><br/>
+          </div>
           </div>
         </div>
       </main>
