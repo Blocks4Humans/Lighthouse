@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { drizzleConnect } from 'drizzle-react'
 import PropTypes from 'prop-types'
 import ContractFormCreate from '../../components/ContractFactory/ContractFormCreate'
-import { channelCreating } from '../../actions/whisper/channelCreate';
-import SuccessSnackbar from '../../components/SuccessSnackbar';
-import WarningSnackbar from '../../components/WarningSnackbar';
+//import { channelCreating } from '../../actions/whisper/channelCreate';
+//import SuccessSnackbar from '../../components/SuccessSnackbar';
+//import WarningSnackbar from '../../components/WarningSnackbar';
 
 class Home extends Component {
   render() {
@@ -17,15 +17,15 @@ class Home extends Component {
           </div>
           <div className="pure-u-1-1">
             <div className="pure-u-1-1">
-            <h2>ContractFactory</h2>
-            <p>This shows a simple ContractData component with no arguments, along with a form to set its value.</p>
+            <h2>Wallet Factory</h2>
+            <p>Create the a new wallet and Id.</p>
             <ContractFormCreate 
             contract="ContractFactory"  
             method="createAndCall" 
             factoryContract="MultiSigWalletWithDailyLimit" 
             method2="initialize" 
             accountIndex="0"
-            labels={['Owners', 'Required','$ Daily Limit']}
+            labels={['Owners', '# Approvals','$ Daily Limit']}
             />
             <br/><br/>
           </div>

@@ -58,14 +58,9 @@ class ContractFormCreate extends Component {
 
   handleSubmit() {
     const self = this;
-    let dummyAccounts = []
-    dummyAccounts[0] = "0xb8CE9ab6943e0eCED004cDe8e3bBed6568B2Fa01"
-    dummyAccounts[1] = "0xe78150FaCD36E8EB00291e251424a0515AA1FF05"
-    let requiredConfirmations = 1
-    let dailyLimit = 1
-
+ 
     self.props.updateOwner(self.props.accounts[self.props.accountIndex]);
-    const initWallet = ethjsABI.encodeMethod(self.MultiSigWalletABI[self.initPos], [[dummyAccounts[0], dummyAccounts[1]], requiredConfirmations, dailyLimit]);
+    const initWallet = ethjsABI.encodeMethod(self.MultiSigWalletABI[self.initPos], [[this.state["_owners"][0], this.state["_owners"][1]], this.state["_required"], this.state["_dailyLimit"]]);
 
     self.contracts[self.props.contract].methods[self.props.method](initWallet).estimateGas({from: self.props.accounts[self.props.accountIndex]})
     .then(function(gasAmount){
