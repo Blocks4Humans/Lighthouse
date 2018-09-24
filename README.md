@@ -3,14 +3,22 @@
 The Lighthouse dApp is a decentralized platform that enables access to a new generation of Identity. The application uses Ethereum Whisper as its principal communication layer. The identities and signers are managed on the EthrDID Registry.
 
 The Id system uses a Proxy to redirect calls to the finall wallet factory.
-![alt text](https://i2.wp.com/blog.zeppelinos.org/wp-content/uploads/2018/04/5Fixed.png)
+![Alt text](./doc/images/Arch.png "Wallet generation")
+
+QR Code
+![Alt text](./doc/images/QR.png "Printed QR Code")
+
+Server
+![Alt text](./doc/images/Server.png "Central point in design")
 
 ## Installation
 
 ### Requirements
 * Unix system
-* [Geth 1.8+](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+* [Geth 1.8+](https://github.com/ethereum/go-ethereum/releases)
 * [NodeJS/LTS](https://nodejs.org/en/download/package-manager/)
+* [Truffle Framework 4.1.14+](https://truffleframework.com/truffle)
+* [Ganache-cli](https://github.com/trufflesuite/ganache-cli)
 
 ```sh
 (Terminal 1)$ npm install
