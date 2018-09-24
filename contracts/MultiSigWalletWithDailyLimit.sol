@@ -130,6 +130,7 @@ contract MultiSigWalletWithDailyLimit is Initializable {
         required = _required;
         dailyLimit = _dailyLimit;
     }
+    
     /*
      * Public functions
      */

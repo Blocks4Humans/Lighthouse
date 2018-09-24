@@ -2,7 +2,7 @@ pragma solidity 0.4.24;
 
 import "openzeppelin-solidity/contracts/lifecycle/Destructible.sol";
 
-/// @title Fabric that generates new contracts from bytecode.
+/// @title Factory that generates new contracts from bytecode.
 /// @author Ricardo Rius - <ricardo@rius.info>
 contract ContractFactory is Destructible {
 
