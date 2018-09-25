@@ -4,6 +4,7 @@ export class Id {
     constructor (conf = {}) {
             this.password = null;  
             this.decryptedId = ethers.Wallet.createRandom();
+            this.encryptedId = null;
         }
 
     randomPass() {
@@ -15,10 +16,12 @@ export class Id {
     }
 
     init(){
-        this.password = this.randomPass();
-        this.decryptedId.encrypt(this.password)
+        const self = this;
+        self.password = this.randomPass();
+        self.decryptedId.encrypt(this.password)
         .then(function(json) {
-            this.encryptedId = json;
+            self.encryptedId = json;
+            return json;
         })
 
     }

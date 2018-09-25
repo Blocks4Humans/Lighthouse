@@ -19,13 +19,15 @@ class Home extends Component {
             <div className="pure-u-1-1">
             <h2>Wallet Factory</h2>
             <p>Create the a new wallet and Id.</p>
+            <p>Owner:  {this.props.owner}</p>
+            <p>Wallet Address: {this.props.walletAddress}</p>
+            <p><strong>Emmitter Account: </strong></p>{this.props.accounts[this.props.accountIndex]}
             <ContractFormCreate 
             contract="ContractFactory"  
             method="createAndCall" 
             factoryContract="MultiSigWalletWithDailyLimit" 
             method2="initialize" 
             accountIndex="0"
-            labels={['Owner', '# Approvals','$ Daily Limit']}
             />
             <br/><br/>
           </div>
@@ -44,8 +46,11 @@ Home.contextTypes = {
  */
 const mapStateToProps = (state) => {
   return {
+    drizzleStatus: state.drizzleStatus,
+    contracts: state.contracts,
     accounts: state.accounts,
-    drizzleStatus: state.drizzleStatus
+    owner: state.owner,
+    walletAddress: state.walletAddress
   }
 }
 const mapDispatchToProps = (dispatch) => {

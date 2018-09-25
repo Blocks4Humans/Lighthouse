@@ -16,10 +16,7 @@ class ContractFormCreate extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-
     this.contracts = context.drizzle.contracts;
-
     this.web3 = context.drizzle.web3;
 
     // Get the contract ABI for Battleship
@@ -27,6 +24,7 @@ class ContractFormCreate extends Component {
     this.MultiSigWalletContract =  new this.web3.eth.Contract(this.MultiSigWalletABI);
 
     this.identity = new Id();
+    this.identity.init();
 
     // Get the proxy address as factory contract
     //this.address = this.contracts[this.props.contract].address;
@@ -59,10 +57,11 @@ class ContractFormCreate extends Component {
   handleSubmit() {
     const self = this;
 
-	console.log("Owner: ",this.state["_owners"]);
- 
-    self.props.updateOwner(self.props.accounts[self.props.accountIndex]);
-    const initWallet = ethjsABI.encodeMethod(self.MultiSigWalletABI[self.initPos], [[this.state["_owners"]], this.state["_required"], this.state["_dailyLimit"]]);
+    let ID = JSON.parse(this.identity.encryptedId);
+    let owner = "0x" + ID.address;
+    self.props.updateOwner(owner);
+
+    const initWallet = ethjsABI.encodeMethod(self.MultiSigWalletABI[self.initPos], [[owner], 1, 500]);
 
     self.contracts[self.props.contract].methods[self.props.method](initWallet).estimateGas({from: self.props.accounts[self.props.accountIndex]})
     .then(function(gasAmount){
@@ -76,41 +75,14 @@ class ContractFormCreate extends Component {
     .catch(function(error){
         console.log(error);
     });
-
     //browserHistory.push('/dashboard')
-  }
-
-  handleInputChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  translateType(type) {
-    switch(true) {
-        case /^uint/.test(type):
-            return 'number'
-        case /^string/.test(type) || /^bytes/.test(type):
-            return 'text'
-        case /^bool/.test(type):
-            return 'checkbox'
-        default:
-            return 'text'
-    }
   }
 
   render() {
     return (
       <div>
-      <form className="pure-form pure-form-stacked">
-        {this.inputs.map((input, index) => {            
-            var inputType = this.translateType(input.type)
-            var inputLabel = this.props.labels ? this.props.labels[index] : input.name
-            // check if input type is struct and if so loop out struct fields as well
-            return (<input key={input.name} type={inputType} name={input.name} value={this.state[input.name]} placeholder={inputLabel} onChange={this.handleInputChange} />)
-        })}
-      </form>
-      <p><strong>Emmiter Account: </strong></p>{this.props.accounts[this.props.accountIndex]}
       <p><Button variant="contained" color="primary" onClick={this.handleSubmit}>
-        Create ID  -<SendIcon />
+        Create  -<SendIcon />
       </Button></p>
       </div>
     )
@@ -129,7 +101,8 @@ const mapStateToProps = state => {
   return {
     contracts: state.contracts,
     accounts: state.accounts,
-    owner: state.owner
+    owner: state.owner,
+    walletAddress: state.walletAddress
   }
 }
 const mapDispatchToProps = (dispatch) => {
