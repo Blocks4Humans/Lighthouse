@@ -20,7 +20,7 @@ The Id system uses a Proxy to redirect calls to the finall wallet factory.
 
 ### Requirements
 * Unix system
-* [Geth 1.8+](https://github.com/ethereum/go-ethereum/releases)
+* [Geth 1.8+](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 * [NodeJS/LTS](https://nodejs.org/en/download/package-manager/)
 * [Truffle Framework 4.1.14+](https://truffleframework.com/truffle)
 * [Ganache-cli](https://github.com/trufflesuite/ganache-cli)

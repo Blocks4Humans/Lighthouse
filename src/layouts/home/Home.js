@@ -25,7 +25,7 @@ class Home extends Component {
             factoryContract="MultiSigWalletWithDailyLimit" 
             method2="initialize" 
             accountIndex="0"
-            labels={['Owners', '# Approvals','$ Daily Limit']}
+            labels={['Owner', '# Approvals','$ Daily Limit']}
             />
             <br/><br/>
           </div>
