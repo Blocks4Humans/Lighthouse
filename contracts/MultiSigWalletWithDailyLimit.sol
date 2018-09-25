@@ -5,6 +5,7 @@ import "zos-lib/contracts/migrations/Initializable.sol";
 /// @title Multisignature wallet with daily limit - Allows an owner to withdraw a daily limit without multisig.
 /// @author Stefan George - <stefan.george@consensys.net>
 /// @author Ricardo Rius - <ricardo@rius.info>
+//  LICENSE: GNU AGPLv3
 contract MultiSigWalletWithDailyLimit is Initializable {
 
     /*
@@ -25,7 +26,6 @@ contract MultiSigWalletWithDailyLimit is Initializable {
      *  Constants
      */
     uint constant public MAX_OWNER_COUNT = 50;
-
 
     /*
      *  Storage
@@ -98,7 +98,7 @@ contract MultiSigWalletWithDailyLimit is Initializable {
         _;
     }
 
-    /// @dev Fallback function allows to deposit ether.
+    /// @dev Fallback function allows to deposit ether only from owners.
     function()
         public
         payable
@@ -113,7 +113,7 @@ contract MultiSigWalletWithDailyLimit is Initializable {
         }
     }
 
-    /// @dev Contract constructor sets initial owners and required number of confirmations.
+    /// @dev Contract initializer sets initial owners, required number of confirmations and daily limit.
     /// @param _owners List of initial owners.
     /// @param _required Number of required confirmations.
     /// @param _dailyLimit Amount in wei, which can be withdrawn without confirmations on a daily basis.
@@ -313,7 +313,6 @@ contract MultiSigWalletWithDailyLimit is Initializable {
     /*
      * Internal functions
      */
-
     /// @dev Returns if amount is within daily limit and resets spentToday after one day.
     /// @param amount Amount to withdraw.
     /// @return Returns if amount is under daily limit.

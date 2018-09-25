@@ -2,8 +2,9 @@ pragma solidity 0.4.24;
 
 import "openzeppelin-solidity/contracts/lifecycle/Destructible.sol";
 
-/// @title Factory that generates new contracts from bytecode.
+/// @title Factory that generates new contracts from loaded bytecode.
 /// @author Ricardo Rius - <ricardo@rius.info>
+//  LICENSE: GNU AGPLv3
 contract ContractFactory is Destructible {
 
     uint public creationTime;
