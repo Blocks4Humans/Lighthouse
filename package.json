@@ -1,7 +1,7 @@
 {
   "name": "Lighthouse-dApp",
   "version": "0.1.0",
-  "license": "GNU AGPLv3",
+  "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "babel-preset-react-app": "^3.1.2",
     "eslint-config-react-app": "^2.1.0",
@@ -15,6 +15,8 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
+    "aes-js": "3.1.1",
+    "ajv": "^6.5.4",
     "did-jwt": "^0.0.8",
     "did-resolver": "^0.0.4",
     "drizzle": "^1.2.3",
@@ -34,6 +36,7 @@
     "react": "^16.5.2",
     "react-dev-utils": "^5.0.2",
     "react-dom": "^16.5.2",
+    "react-qr-reader": "^2.1.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -42,6 +45,7 @@
     "redux-auth-wrapper": "^2.0.3",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.3.0",
+    "scrypt-js": "2.0.3",
     "web3": "1.0.0-beta.34"
   },
   "scripts": {
