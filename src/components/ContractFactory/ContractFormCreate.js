@@ -24,22 +24,15 @@ class ContractFormCreate extends Component {
     this.MultiSigWalletContract =  new this.web3.eth.Contract(this.MultiSigWalletABI);
 
     this.identity = new Id();
-    this.identity.init();
 
     // Get the proxy address as factory contract
     //this.address = this.contracts[this.props.contract].address;
     this.address = this.contracts["AdminUpgradeabilityProxy"].address;
     
     let i
-    let initialState = {};
     for (i = 0; i < this.MultiSigWalletABI.length; i++) {
       if (this.MultiSigWalletABI[i].name === "initialize") {
           this.initPos = i;
-          this.inputs = this.MultiSigWalletABI[i].inputs;
-
-          for (i = 0; i < this.inputs.length; i++) {
-              initialState[this.inputs[i].name] = '';
-          }
           break;
       }
     }
@@ -51,7 +44,16 @@ class ContractFormCreate extends Component {
       }
     }
 
+    let initialState = {};
     this.state = initialState;
+  }
+
+  async componentDidMount() {
+    try {
+      await this.identity.init();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   handleSubmit() {
@@ -82,7 +84,7 @@ class ContractFormCreate extends Component {
     return (
       <div>
       <p><Button variant="contained" color="primary" onClick={this.handleSubmit}>
-        Create  -<SendIcon />
+        Create  <SendIcon />
       </Button></p>
       </div>
     )
@@ -107,8 +109,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateOwner : (owner) => {dispatch(updatingOwner(owner))},
-    updateWalletAddress : (walletAddress) => {dispatch(updatingWalletAddress(walletAddress))},
+    updateOwner: (owner) => {dispatch(updatingOwner(owner))},
+    updateWalletAddress: (walletAddress) => {dispatch(updatingWalletAddress(walletAddress))},
     addWalletContract: (walletContract) => {dispatch(updatingWalletContract(walletContract))}
   };
 };

@@ -1,7 +1,7 @@
 {
   "name": "Lighthouse-dApp",
   "version": "0.1.0",
-  "license": "GNU AGPLv3",
+  "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "babel-preset-react-app": "^3.1.2",
     "eslint-config-react-app": "^2.1.0",
@@ -15,6 +15,8 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
+    "aes-js": "3.1.1",
+    "ajv": "^6.5.4",
     "did-jwt": "^0.0.8",
     "did-resolver": "^0.0.4",
     "drizzle": "^1.2.3",
@@ -34,6 +36,7 @@
     "react": "^16.5.2",
     "react-dev-utils": "^5.0.2",
     "react-dom": "^16.5.2",
+    "react-qr-reader": "^2.1.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -42,6 +45,7 @@
     "redux-auth-wrapper": "^2.0.3",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.3.0",
+    "scrypt-js": "2.0.3",
     "web3": "1.0.0-beta.34"
   },
   "scripts": {
@@ -51,7 +55,15 @@
     "eject": "react-scripts eject",
     "ganache-dev": "node ./node_modules/ganache-cli/build/cli.node.js -a=10 -b=3 -p=8545 -i=1335 -l=8000000 -g=1000000000 -m='coffee slogan task clinic begin rocket rabbit despair tank kid hire quiz'",
     "geth-dev:whisper": "npm run geth-dev:delete && geth --networkid=1337 --datadir=.dev/datadir --shh --ws --wsport=8546 --wsaddr=localhost --wsorigins=\"*\" --wsapi=eth,web3,net,shh,debug,personal --nodiscover --maxpeers=0 --dev",
-    "geth-dev:delete": "rm -fR .dev/datadir/geth/"
+    "geth-dev:delete": "rm -fR .dev/datadir/geth/",
+    "geth-dev:remove": "yes | geth removedb --datadir=.dev/datadir",
+    "geth-dev:chain": "geth --networkid=1337 --datadir=.dev/datadir --unlock f18f16eebae0912a17885d743754c943b548a630,04c4b39e60ab3655af44cb928ac0da196188dd65,2eb6b952af9ef44f376e799ca44a76a28d3e8957,d84d3cd384604375a115d697e838b5b4ed681c9d,1435b9664159cc908d67c46b2f92ecb414ec8190,5fc5cea687718fbdb529f19a2fffb621aa828405,8d36227d3549846490fdf61e51a07ce5c84cfd56,cf2069750e3ce70f971f7f0af9538af7fd773e47,eee054834b10c5c76e2e25c8b00b0499f2916df2,46bbce669bd8b37660695d4f863da4665079c596 --password config/dev_pass.txt --cache=1024 --cache.database=75 --port=30303 --rpc --rpcport=8545 --rpcaddr=localhost  --rpccorsdomain=\"*\" --nodiscover --maxpeers=0 --ws --wsport=8546 --wsaddr=localhost --wsorigins=\"*\" --mine --minerthreads=1 --shh --rpcapi=eth,web3,net,debug,shh,personal --wsapi=eth,web3,net,shh,debug,personal --targetgaslimit=800000000 --gasprice=1000000000 --dev --dev.period=1",
+    "geth-dev:supply": "geth --exec 'loadScript(\"config/createbalances.js\")' attach .dev/datadir/geth.ipc",
+    "geth-dev": "npm run geth-dev:delete && (sleep 10s; npm run geth-dev:supply) & npm run geth-dev:chain",
+    "geth-priv:remove": "yes | geth removedb --datadir=.dev/datadir",
+    "geth-priv:init": "geth --datadir=.dev/datadir init .dev/datadir/gethGenesisBlock.json",
+    "geth-priv:chain": " geth --networkid=1337 --datadir=.dev/datadir --unlock f18f16eebae0912a17885d743754c943b548a630,04c4b39e60ab3655af44cb928ac0da196188dd65,2eb6b952af9ef44f376e799ca44a76a28d3e8957,d84d3cd384604375a115d697e838b5b4ed681c9d,1435b9664159cc908d67c46b2f92ecb414ec8190,5fc5cea687718fbdb529f19a2fffb621aa828405,8d36227d3549846490fdf61e51a07ce5c84cfd56,cf2069750e3ce70f971f7f0af9538af7fd773e47,eee054834b10c5c76e2e25c8b00b0499f2916df2,46bbce669bd8b37660695d4f863da4665079c596 --password config/dev_pass.txt --cache=1024 --cache.database=75 --port=30303 --rpc --rpcport=8545 --rpcaddr=localhost  --rpccorsdomain=\"*\" --nodiscover --maxpeers=0 --ws --wsport=8546 --wsaddr=localhost --wsorigins=\"*\" --mine --minerthreads=1 --etherbase=0xf18f16eebae0912a17885d743754c943b548a630  --shh --rpcapi=eth,web3,net,debug,shh,personal --wsapi=eth,web3,net,shh,debug,personal --gpopercentile=60 --gpoblocks=20 --targetgaslimit=800000000 --gasprice=1000000000 --ethash.dagdir=.dev/datadir/geth/ --ethash.cachedir=.dev/datadir/geth/ --ethash.dagsinmem=1 --ethash.dagsondisk=1",
+    "geth-priv": "npm run geth-priv:remove &&  npm run run geth-priv:init && npm run geth-priv:chain"
   },
   "jest": {
     "collectCoverageFrom": [

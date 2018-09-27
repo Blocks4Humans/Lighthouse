@@ -35,7 +35,7 @@ The Id system uses a Proxy to redirect calls to the finall wallet factory.
 ```sh
 (Terminal 3)$ npm run geth-dev:whisper
 (Terminal 2)$ npm run ganache-dev
-(Terminal 1)$ truffle migrate --netwrok ganache_dev
+(Terminal 1)$ truffle migrate --network ganache_dev
 (Terminal 1)$ npm start
 ```
 

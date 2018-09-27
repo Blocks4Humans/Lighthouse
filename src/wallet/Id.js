@@ -2,9 +2,10 @@ import ethers from 'ethers';
 
 export class Id {
     constructor (conf = {}) {
-            this.password = null;  
+            this.password = null;
+            this.encryptedId = null;  
             this.decryptedId = ethers.Wallet.createRandom();
-            this.encryptedId = null;
+
         }
 
     randomPass() {
@@ -15,15 +16,11 @@ export class Id {
         return text;
     }
 
-    init(){
+    async init(){
         const self = this;
-        self.password = this.randomPass();
-        self.decryptedId.encrypt(this.password)
-        .then(function(json) {
-            self.encryptedId = json;
-            return json;
-        })
-
+        const pass = this.randomPass();
+        self.encryptedId = await self.decryptedId.encrypt(pass);
+        self.password = pass;
     }
 }
 
