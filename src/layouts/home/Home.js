@@ -3,6 +3,7 @@ import { drizzleConnect } from 'drizzle-react'
 import PropTypes from 'prop-types'
 import ContractFormCreate from '../../components/ContractFactory/ContractFormCreate'
 import {idCreating} from '../../actions/create/updateWallet';
+import QRCode from 'qrcode.react';
 
 //import { channelCreating } from '../../actions/whisper/channelCreate';
 //import SuccessSnackbar from '../../components/SuccessSnackbar';
@@ -17,6 +18,9 @@ class Home extends Component {
     }
   }
   render() {
+    let buf = new Buffer(JSON.stringify({ address: this.props.owner, walletAddress: this.props.walletAddress }));
+    let base64 = buf.toString('base64');
+    let QrString = 'May the Force be with you.\n'+ base64;
     return (
       <main className="container">
         <div className="pure-g">
@@ -28,19 +32,25 @@ class Home extends Component {
             <div className="pure-u-1-1">
             <h2>Wallet Factory</h2>
             <p>Create the a new wallet and Id.</p>
-            <p>Owner Identity:  {this.props.owner}</p>
+            <p>Owner Identity: {this.props.owner}</p>
             <p>Wallet Address: {this.props.walletAddress}</p>
             <p><strong>Emitter Account: </strong></p>{this.props.accounts[this.props.accountIndex]}
             <ContractFormCreate 
-            contract="ContractFactory"  
-            method="createAndCall" 
-            factoryContract="MultiSigWalletWithDailyLimit" 
-            method2="initialize" 
-            accountIndex="0"
+              contract="ContractFactory"  
+              method="createAndCall" 
+              factoryContract="MultiSigWalletWithDailyLimit" 
+              method2="initialize" 
+              accountIndex="0"
             />
             <br/>
-            <h3>Create QR Code</h3>
-
+            <h2>QR Code</h2>
+            <QRCode
+              value={QrString}
+              size={200}
+              bgColor={"#ffffff"}
+              fgColor={"#000000"}
+              level={"L"}
+            />
             <br/>
           </div>
           </div>

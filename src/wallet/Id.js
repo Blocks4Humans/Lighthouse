@@ -24,7 +24,7 @@ export class Id {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(randStr, salt);
         const pass = hash.substring(salt.length, hash.length );
-        self.encryptedId = await decryptedId.encrypt(hash);
+        self.encryptedId = await decryptedId.encrypt(pass);
         self.password = pass;
         self.privKey = decryptedId.privKey;
         self.address = decryptedId.address;
