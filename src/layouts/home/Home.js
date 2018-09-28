@@ -30,15 +30,14 @@ class Home extends Component {
           </div>
           <div className="pure-u-1-1">
             <div className="pure-u-1-1">
+            <p><strong>Emitter Account: </strong></p>{this.props.accounts[0]}
+            <p><strong>Identity Owner: {this.props.owner}</strong></p>
             <h2>Wallet Factory</h2>
-            <p>Create the a new wallet and Id.</p>
-            <p>Owner Identity: {this.props.owner}</p>
             <p>Wallet Address: {this.props.walletAddress}</p>
-            <p><strong>Emitter Account: </strong></p>{this.props.accounts[this.props.accountIndex]}
             <ContractFormCreate 
               contract="ContractFactory"  
               method="createAndCall" 
-              factoryContract="MultiSigWalletWithDailyLimit" 
+              factoryContract="MultiSigWallet" 
               method2="initialize" 
               accountIndex="0"
             />

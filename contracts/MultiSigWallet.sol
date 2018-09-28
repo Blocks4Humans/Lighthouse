@@ -6,7 +6,7 @@ import "zos-lib/contracts/migrations/Initializable.sol";
 /// @author Stefan George - <stefan.george@consensys.net>
 /// @author Ricardo Rius - <ricardo@rius.info>
 //  LICENSE: GNU AGPLv3
-contract MultiSigWalletWithDailyLimit is Initializable {
+contract MultiSigWallet is Initializable {
 
     /*
      *  Events
