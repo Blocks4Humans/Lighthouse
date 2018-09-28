@@ -1,6 +1,6 @@
 
 
-export function updateOwner(state = '', action) {
+export function ownerUpdate(state = '', action) {
     switch (action.type) {
         case 'UPDATE_OWNER':
             return action.owner;
@@ -10,7 +10,7 @@ export function updateOwner(state = '', action) {
     }
 }
 
-export function updateWalletAddress(state = '', action) {
+export function walletAddressUpdate(state = '', action) {
     switch (action.type) {
         case 'UPDATE_WALLET_ADDRESS':
             return action.walletAddress;
@@ -20,7 +20,7 @@ export function updateWalletAddress(state = '', action) {
     }
 }
 
-export function updateWalletContract(state = {}, action) {
+export function walletContractUpdate(state = {}, action) {
     switch (action.type) {
         case 'UPDATE_WALLET_CONTRACT':
             return action.walletContract;
