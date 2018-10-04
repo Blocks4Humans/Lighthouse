@@ -1,12 +1,12 @@
 var ContractFactory = artifacts.require("ContractFactory");
-var MultiSigWalletWithDailyLimit = artifacts.require("MultiSigWalletWithDailyLimit");
+var MultiSigWallet = artifacts.require("MultiSigWallet");
 
 module.exports = function(deployer) {
 	
 	var bytecode = '0x0';
 	var tx;
 
-	const code = MultiSigWalletWithDailyLimit.bytecode;
+	const code = MultiSigWallet.bytecode;
 	bytecode = code.toString()
 	const size = bytecode.length -1
 

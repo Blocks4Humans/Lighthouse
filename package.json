@@ -6,17 +6,16 @@
     "babel-preset-react-app": "^3.1.2",
     "eslint-config-react-app": "^2.1.0",
     "ganache-cli": "^6.1.6",
-    "openzeppelin-solidity": "1.12.0",
     "react-scripts": "1.1.5",
     "truffle": "^4.1.14",
-    "truffle-hdwallet-provider": "^0.0.6",
-    "zos-lib": "^1.4.0"
+    "truffle-hdwallet-provider": "^0.0.6"
   },
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
     "aes-js": "3.1.1",
     "ajv": "^6.5.4",
+    "bcryptjs": "^2.4.3",
     "did-jwt": "^0.0.8",
     "did-resolver": "^0.0.4",
     "drizzle": "^1.2.3",

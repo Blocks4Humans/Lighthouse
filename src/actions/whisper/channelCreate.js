@@ -32,13 +32,13 @@ export function channelCreating(registryAddress, identity, identity2, topic) {
         dispatch(channelIsLoading(true));
         createChannel({registryAddress, identity, identity2, topic})
         .then(
-            (channel) => {channelCreated(channel)
+            (channel) => {dispatch(channelCreated(channel))
             return channel;
         })
         .then(
             (channel) => {
             channel.open()
-            .then((keys) =>{ keysCreated(keys)
+            .then((keys) =>{ dispatch(keysCreated(keys))
                 return channel;
             })
             .then((channel) => channel.start())

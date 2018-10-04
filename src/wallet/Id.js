@@ -1,28 +1,36 @@
 import ethers from 'ethers';
+import bcrypt from 'bcryptjs';
 
 export class Id {
-    constructor (conf = {}) {
-            this.password = null;
-            this.encryptedId = null;  
-            this.decryptedId = ethers.Wallet.createRandom();
+    constructor(props, context) {
+        this.password = null;
+        this.privKey = null;
+        this.address = null;
+        this.encryptedId = null;
+    }
 
-        }
-
-    randomPass() {
+    randomString() {
         var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.!$%&/;(=?¡[:-)]";
-        for (var i = 0; i < 16; i++)
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ[/^!@#$%^&*()+$]0123456789abcdefghijklmnopqrstuvwxyz";
+        for (var i = 0; i < 20; i++)
             text += possible.charAt(Math.floor(Math.random() * possible.length));
         return text;
     }
 
     async init(){
         const self = this;
-        const pass = this.randomPass();
-        self.encryptedId = await self.decryptedId.encrypt(pass);
+        const randStr = this.randomString();
+        const decryptedId = ethers.Wallet.createRandom();
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(randStr, salt);
+        const pass = hash.substring(salt.length, hash.length );
+        self.encryptedId = await decryptedId.encrypt(pass);
         self.password = pass;
+        self.privKey = decryptedId.privKey;
+        self.address = decryptedId.address;
     }
 }
+export default Id;
 
 
 /*
