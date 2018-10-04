@@ -1,20 +1,21 @@
-![Alt text](./doc/images/LIGHTHOUSE.png "LIGHTHOUSE")
+<p align="center">
+  <img src="./doc/images/LIGHTHOUSE.png"  width="150px"/>
+</p>
 
 # LIGHTHOUSE
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)]
 
 The Lighthouse dApp is a decentralized platform that enables access to a new generation of Identity. The application uses Ethereum Whisper as its principal communication layer. The identities and signers are managed on the EthrDID Registry.
 
-The Id system uses a Proxy to redirect calls to the finall wallet factory.
-
-![Alt text](./doc/images/Arch.png "Wallet generation")
+[![](./doc/images/Arch.png "Wallet generation")]
 
 ### QR Code Arch
 
-![Alt text](./doc/images/QR.png "Printed QR Code")
+[![](./doc/images/QR.png "Printed QR Code")]
 
 ### Server
 
-![Alt text](./doc/images/Server.png "Central point in design")
+[![](./doc/images/Server.png "Central point in design")]
 
 ## Installation
 
