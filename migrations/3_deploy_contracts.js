@@ -1,5 +1,5 @@
 var ContractFactory = artifacts.require("ContractFactory");
-var MultiSigWallet = artifacts.require("MultiSigWallet");
+var Wallet = artifacts.require("Wallet");
 
 module.exports = function(deployer) {
 	
