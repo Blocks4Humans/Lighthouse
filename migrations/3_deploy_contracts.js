@@ -6,7 +6,7 @@ module.exports = function(deployer) {
 	var bytecode = '0x0';
 	var tx;
 
-	const code = MultiSigWallet.bytecode;
+	const code = Wallet.bytecode;
 	bytecode = code.toString()
 	const size = bytecode.length -1
 

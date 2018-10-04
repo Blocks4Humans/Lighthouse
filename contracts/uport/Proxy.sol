@@ -6,7 +6,7 @@ contract Proxy is Ownable {
     event Forwarded (address indexed destination, uint value, bytes data);
     event Received (address indexed sender, uint value);
 
-    function () public payable { Received(msg.sender, msg.value); }
+    function () public payable { emit Received(msg.sender, msg.value); }
 
     function forward(address destination, uint value, bytes data) public onlyOwner {
         require(executeCall(destination, value, data));

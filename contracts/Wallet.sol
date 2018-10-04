@@ -1,10 +1,9 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.24;
 
 import "./openzeppelin/migrations/Initializable.sol";
 import "./gnosis-wallet/MultiSigWalletWithDailyLimit.sol";
 
 /// @title Multisignature wallet with daily limit - Allows an owner to withdraw a daily limit without multisig.
-/// @author Stefan George - <stefan.george@consensys.net>
 contract Wallet is MultiSigWalletWithDailyLimit,Initializable {
 
     /// @dev Contract initializer sets initial owners, required number of confirmations and daily limit.

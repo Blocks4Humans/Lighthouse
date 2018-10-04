@@ -50,7 +50,7 @@ contract EthereumDIDRegistry {
     }
 
     function validDelegate(address identity, bytes32 delegateType, address delegate) public view returns(bool) {
-        uint validity = delegates[identity][keccak256(delegateType)][delegate];
+        uint validity = delegates[identity][keccak256(abi.encodePacked(delegateType))][delegate];
         return (validity > now);
     }
 
@@ -70,7 +70,7 @@ contract EthereumDIDRegistry {
     }
 
     function addDelegate(address identity, address actor, bytes32 delegateType, address delegate, uint validity) internal onlyOwner(identity, actor) {
-        delegates[identity][keccak256(delegateType)][delegate] = now + validity;
+        delegates[identity][keccak256(abi.encodePacked(delegateType))][delegate] = now + validity;
         emit DIDDelegateChanged(identity, delegateType, delegate, now + validity, changed[identity]);
         changed[identity] = block.number;
     }
@@ -85,7 +85,7 @@ contract EthereumDIDRegistry {
     }
 
     function revokeDelegate(address identity, address actor, bytes32 delegateType, address delegate) internal onlyOwner(identity, actor) {
-        delegates[identity][keccak256(delegateType)][delegate] = now;
+        delegates[identity][keccak256(abi.encodePacked(delegateType))][delegate] = now;
         emit DIDDelegateChanged(identity, delegateType, delegate, now, changed[identity]);
         changed[identity] = block.number;
     }

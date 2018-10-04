@@ -1,6 +1,6 @@
 var ethjsABI = require('ethjs-abi')
 var ContractFactory = artifacts.require("ContractFactory");
-var MultiSigWalletWithDailyLimit = artifacts.require("MultiSigWalletWithDailyLimit");
+var Wallet = artifacts.require("Wallet");
 
 
 contract('ContractFactory', function(accounts) {
@@ -15,7 +15,7 @@ contract('ContractFactory', function(accounts) {
 
     before(async () => {
       instance = await ContractFactory.deployed()
-	    notFactoryWallet = await MultiSigWalletWithDailyLimit.deployed()
+	    notFactoryWallet = await Wallet.deployed()
 
 		for (let i = 0; i < notFactoryWallet.contract.abi.length; i++) {
 		  if (notFactoryWallet.contract.abi[i].name === "initialize") {
@@ -24,11 +24,11 @@ contract('ContractFactory', function(accounts) {
 			  break;
 		  }
 		}
-      bytecode = await MultiSigWalletWithDailyLimit.bytecode
+      bytecode = await Wallet.bytecode
     })
 
-    describe('Create a new game contract from factory and send initial data', () => {
-      it('should pass players and data to game contract', async () => {
+    describe('Create a wallet contract from factory and send initial data', () => {
+      it('should pass initial data to wallet contract', async () => {
         try {
           await instance.createAndCall(initWallet)
         } catch (error) {
