@@ -1,6 +1,6 @@
 pragma solidity 0.4.24;
 
-import "zos-lib/contracts/migrations/Initializable.sol";
+import "./openzeppelin/migrations/Initializable.sol";
 
 /// @title Multisignature wallet with daily limit - Allows an owner to withdraw a daily limit without multisig.
 /// @author Stefan George - <stefan.george@consensys.net>
