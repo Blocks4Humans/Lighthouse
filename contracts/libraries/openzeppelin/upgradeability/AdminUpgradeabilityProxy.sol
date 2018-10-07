@@ -52,6 +52,7 @@ contract AdminUpgradeabilityProxy is UpgradeabilityProxy {
   /**
    * @return The address of the proxy admin.
    */
+  /* solium-disable-next-line */
   function admin() external view ifAdmin returns (address) {
     return _admin();
   }
@@ -59,6 +60,7 @@ contract AdminUpgradeabilityProxy is UpgradeabilityProxy {
   /**
    * @return The address of the implementation.
    */
+  /* solium-disable-next-line */
   function implementation() external view ifAdmin returns (address) {
     return _implementation();
   }

@@ -1,7 +1,7 @@
 pragma solidity 0.4.24;
 
-import "./libraries/openzeppelin/ECRecovery.sol";
 import "./libraries/openzeppelin/token/ERC20/ERC20Basic.sol";
+import "./libraries/openzeppelin/ECRecovery.sol";
 import "./libraries/uport/Proxy.sol";
 import "./libraries/Bytes.sol";
 
@@ -88,6 +88,7 @@ contract TransactionProxy is Proxy {
         require(ethrReg != address(0), ", ethr registry not set.");
         require(_identity != address(0) && _delegateType != bytes32(0) && _delegate != address(0),", invalid delegate input.");
         bytes4 funcSig = bytes4(keccak256("validDelegate(address,bytes32,address)"));
+        /* solium-disable-next-line security/no-inline-assembly */
         assembly {
             // Move pointer to free memory spot.
             let ptr := mload(0x40)

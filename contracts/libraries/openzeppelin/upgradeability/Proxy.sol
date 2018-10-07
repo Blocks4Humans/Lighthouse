@@ -53,6 +53,7 @@ contract Proxy {
    * Can be redefined in derived contracts to add functionality.
    * Redefinitions must call super._willFallback().
    */
+  /* solium-disable-next-line */
   function _willFallback() internal {
   }
 
