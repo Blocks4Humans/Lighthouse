@@ -1,9 +1,9 @@
 var ethjsABI = require('ethjs-abi')
-var ContractFactory = artifacts.require("ContractFactory");
+var WalletFactory = artifacts.require("WalletFactory");
 var Wallet = artifacts.require("Wallet");
 
 
-contract('ContractFactory', function(accounts) {
+contract('WalletFactory', function(accounts) {
     let instance, bytecode, notFactoryWallet
     let newWalletPos, initWallet
     let requiredConfirmations = 1
@@ -14,7 +14,7 @@ contract('ContractFactory', function(accounts) {
     const code = accounts[5]
 
     before(async () => {
-      instance = await ContractFactory.deployed()
+      instance = await WalletFactory.deployed()
 	    notFactoryWallet = await Wallet.deployed()
 
 		for (let i = 0; i < notFactoryWallet.contract.abi.length; i++) {

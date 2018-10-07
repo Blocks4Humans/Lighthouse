@@ -1,16 +1,16 @@
-var WalletFactory = artifacts.require("WalletFactory");
-var Wallet = artifacts.require("Wallet");
+var FundraiseFactory = artifacts.require("FundraiseFactory");
+var Heritage = artifacts.require("Heritage");
 
 module.exports = function(deployer) {
 	
 	var bytecode = '0x0';
 	var tx;
 
-	const code = Wallet.bytecode;
+	const code = Heritage.bytecode;
 	bytecode = code.toString()
 	const size = bytecode.length -1
 
-	deployer.deploy(WalletFactory)
+	deployer.deploy(FundraiseFactory)
 	.then(function(instance) {
 		var pos=8001;
 		var i=0, j = 0;

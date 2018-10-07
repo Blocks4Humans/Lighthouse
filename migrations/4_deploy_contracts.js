@@ -1,9 +1,9 @@
 var AdminUpgradeabilityProxy = artifacts.require("AdminUpgradeabilityProxy");
-var ContractFactory = artifacts.require("ContractFactory");
+var WalletFactory = artifacts.require("WalletFactory");
 
 module.exports = function(deployer) {
 
-	deployer.deploy(AdminUpgradeabilityProxy, ContractFactory.address);
+	deployer.deploy(AdminUpgradeabilityProxy, WalletFactory.address);
 
 };
 

@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
 
-import "./openzeppelin/migrations/Initializable.sol";
-import "./gnosis-wallet/MultiSigWalletWithDailyLimit.sol";
+import "./libraries/openzeppelin/migrations/Initializable.sol";
+import "./libraries/gnosis-wallet/MultiSigWalletWithDailyLimit.sol";
 
 /// @title Multisignature wallet with daily limit - Allows an owner to withdraw a daily limit without multisig.
 contract Wallet is MultiSigWalletWithDailyLimit,Initializable {

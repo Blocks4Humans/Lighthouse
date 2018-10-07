@@ -1,8 +1,8 @@
 pragma solidity 0.4.24;
 
-import "./openzeppelin/ECRecovery.sol";
-import "./openzeppelin/token/ERC20/ERC20Basic.sol";
-import "./uport/Proxy.sol";
+import "./libraries/openzeppelin/ECRecovery.sol";
+import "./libraries/openzeppelin/token/ERC20/ERC20Basic.sol";
+import "./libraries/uport/Proxy.sol";
 import "./libraries/Bytes.sol";
 
 // Based on https://github.com/austintgriffith/bouncer-proxy
