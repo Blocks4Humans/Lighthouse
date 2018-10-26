@@ -35,9 +35,9 @@ class Home extends Component {
             <h2>Wallet Factory</h2>
             <p>Wallet Address: {this.props.walletAddress}</p>
             <ContractFormCreate 
-              contract="ContractFactory"  
+              contract="WalletFactory"  
               method="createAndCall" 
-              factoryContract="MultiSigWallet" 
+              factoryContract="Wallet"
               method2="initialize" 
               accountIndex="0"
             />

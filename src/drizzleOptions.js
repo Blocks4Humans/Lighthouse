@@ -1,6 +1,6 @@
 import Web3 from 'web3'
-import ContractFactory from './contracts/ContractFactory.json'
-import MultiSigWallet from './contracts/MultiSigWallet.json'
+import WalletFactory from './contracts/WalletFactory.json'
+import Wallet from './contracts/Wallet.json'
 import AdminUpgradeabilityProxy from './contracts/AdminUpgradeabilityProxy.json'
 
 let drizzleOptions = {
@@ -11,8 +11,8 @@ let drizzleOptions = {
     }
   },
   contracts: [
-    ContractFactory,
-    MultiSigWallet,
+    WalletFactory,
+    Wallet,
     AdminUpgradeabilityProxy
   ],
   events: {

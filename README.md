@@ -34,8 +34,8 @@ The Lighthouse dApp is a decentralized platform that enables access to a new gen
 ## Usage
 
 ```sh
-(Terminal 3)$ npm run geth-dev:whisper
-(Terminal 2)$ npm run ganache-dev
+(Terminal 3)$ npm run geth_dev:whisper
+(Terminal 2)$ npm run ganache_dev
 (Terminal 1)$ truffle migrate --network ganache_dev
 (Terminal 1)$ npm start
 ```
