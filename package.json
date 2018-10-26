@@ -14,9 +14,11 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
+    "@parity/qr-signer": "^0.3.1",
     "aes-js": "3.1.1",
     "ajv": "^6.5.4",
     "bcryptjs": "^2.4.3",
+    "classnames": "^2.2.6",
     "did-jwt": "^0.0.8",
     "did-resolver": "^0.0.4",
     "drizzle": "^1.2.3",
@@ -31,7 +33,9 @@
     "ethr-did": "^1.0.0",
     "ethr-did-resolver": "^0.1.1",
     "history": "^4.7.2",
+    "i": "^0.3.6",
     "interval-promise": "^1.2.0",
+    "npm": "^6.4.1",
     "qrcode.react": "^0.8.0",
     "react": "^16.5.2",
     "react-dev-utils": "^5.0.2",
@@ -46,6 +50,7 @@
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.3.0",
     "scrypt-js": "2.0.3",
+    "translations": "^2.2.1",
     "web3": "1.0.0-beta.34"
   },
   "scripts": {
