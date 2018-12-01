@@ -7,6 +7,8 @@
 
 The Lighthouse dApp is a decentralized platform that enables access to a new generation of Identity. The application uses Ethereum Whisper as its principal communication layer. The identities and signers are managed on the EthrDID Registry.
 
+* [Specifications](./doc/Specifications.pdf)
+
 ![](./doc/images/Arch.png "Wallet generation")
 
 ### QR Code Arch
