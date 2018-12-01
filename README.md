@@ -9,7 +9,10 @@ The Lighthouse dApp is a decentralized platform that enables access to a new gen
 
 * [Specifications](./doc/Specifications.pdf)
 
-![](./doc/images/Arch.png "Wallet generation")
+
+### Example
+
+![](./doc/images/Safe_Passport.png "Safe Passport")
 
 ### QR Code Arch
 
@@ -18,6 +21,10 @@ The Lighthouse dApp is a decentralized platform that enables access to a new gen
 ### Server
 
 ![](./doc/images/Server.png "Central point in design")
+
+### Update Pattern
+
+![](./doc/images/Arch.png "Wallet generation")
 
 ## Installation
 
