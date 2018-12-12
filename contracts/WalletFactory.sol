@@ -18,12 +18,12 @@ contract WalletFactory is Destructible {
     }
 
     event ContractDeployed(address emiter, address deployedAddress);
-    event BytecodeChanged(address owner, string message);
-    event FabricLocked(address owner, string message);
+    event BytecodeChanged(address _owner, string message);
+    event FabricLocked(address _owner, string message);
 
     /// @dev Verifies if caller is owner. Owner is inherited from Ownable <- Destructible
     modifier ifOwner() {
-        if(msg.sender == owner) {
+        if(msg.sender == _owner) {
             _;
         } else {
             revert(", not owner.");
@@ -51,7 +51,7 @@ contract WalletFactory is Destructible {
         uint len = _data.length;
         require(len >= 20, "incorrect bytecode size.");
         bytecode = _data;
-        emit BytecodeChanged(owner, ", the owner updated the code.");
+        emit BytecodeChanged(_owner, ", the owner updated the code.");
     }
     
     /// @dev Only owner can retrieve the loaded bytecode.
@@ -62,7 +62,7 @@ contract WalletFactory is Destructible {
     /// @dev Manually lock the contract by not letting it change the bytecode.
     function lockFabric() external ifOwner ifNotLocked{
         locked = true;
-        emit FabricLocked(owner, ", the fabric bytecode became not upgradable.");
+        emit FabricLocked(_owner, ", the fabric bytecode became not upgradable.");
     }
 
     /// @dev Creates a new contract instance and calls the encoded data after creation.

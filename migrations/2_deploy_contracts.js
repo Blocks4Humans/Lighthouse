@@ -1,6 +1,5 @@
 var Wallet = artifacts.require("Wallet");
 var EthereumDIDRegistry = artifacts.require("EthereumDIDRegistry");
-var Heritage = artifacts.require("Heritage");
 
 module.exports = function(deployer) {
 	let dummyAccounts = []
@@ -14,5 +13,4 @@ module.exports = function(deployer) {
 	});
 	
 	deployer.deploy(EthereumDIDRegistry);
-  	deployer.deploy(Heritage);
 };

@@ -5,12 +5,12 @@ pragma solidity 0.4.24;
   Austin Thomas Griffith
 */
 
-import "./libraries/openzeppelin/ECRecovery.sol";
+import "./libraries/openzeppelin/cryptography/ECDSA.sol";
 import "./libraries/openzeppelin/math/SafeMath.sol";
 import "./libraries/openzeppelin/token/ERC20/ERC20.sol";
 
 contract Subscription {
-    using ECRecovery for bytes32;
+    using ECDSA for bytes32;
     using SafeMath for uint256;
 
     //who deploys the contract

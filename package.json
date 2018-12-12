@@ -51,7 +51,7 @@
     "redux-thunk": "^2.3.0",
     "scrypt-js": "2.0.3",
     "translations": "^2.2.1",
-    "web3": "1.0.0-beta.34"
+    "web3": "1.0.0-beta.37"
   },
   "scripts": {
     "start": "react-scripts start",
