@@ -12,6 +12,11 @@ The Lighthouse dApp is a decentralized platform that enables access to a new gen
 
 ### Example
 
+**For many migrants trekking to the U.S., _faith_ is their _compass_.** 
+**In Latin America and the Caribbean people has a strong devotion to _Virgin Mary_.**
+
+**It is very common for them to travel with an image of Mary**
+
 ![](./doc/images/Safe_Passport.png "Safe Passport")
 
 ### QR Code Arch
